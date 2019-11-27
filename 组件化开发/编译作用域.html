@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="../js/vue.js"></script>
+</head>
+
+<body>
+  <div id="app">
+    <cpn></cpn>
+    <cpn>
+      <!-- 这个template在新版vue中可以换成别的标签 -->
+      <template slot-scope="slot">
+        <span>{{slot.data.join('-')}}</span>
+      </template>
+    </cpn>
+  </div>
+  <template id="cpn">
+    <div>
+      <h1>nihs</h1>
+      <slot v-bind:data="plag">
+        <ul>
+          <li v-for="item in plag">{{item}}</li>
+        </ul>
+      </slot>
+
+
+    </div>
+  </template>
+
+  <script>
+    const app = new Vue({
+      el: '#app',
+      data: {
+        isTrue: true
+      },
+      components: {
+        cpn: {
+          template: '#cpn',
+          data() {
+            return {
+              plag: ['a', 'b', 'c', 'd', 'e']
+            }
+          }
+        }
+      }
+    })
+  </script>
+</body>
+
+</html>

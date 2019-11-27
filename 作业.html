@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        .red{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!-- 页面显示三个电影，点击哪个哪个就变成红色。 -->
+    <div id="app">
+       <ul>
+           <li v-for="(m,index) in movies" 
+           v-bind:class="{red:index===curentIndex}"
+           v-on:click="liClick(index)"
+           >
+           {{index}}-{{m}}</li>
+       </ul>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                curentIndex:0,
+                movies:['少年的你','中年的你','老年的你'],
+                
+            },
+            methods:{
+               
+                liClick(index){
+                    this.curentIndex = index
+                }
+                }
+            
+        })
+    </script>
+</body>
+</html>

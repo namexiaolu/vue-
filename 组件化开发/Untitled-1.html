@@ -1,0 +1,57 @@
+<!DOcTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript" src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <div id="app">
+        <h2>{{message}}</h2>
+        <cpn :cmessage="message" @messagechange="messagechange"></cpn>
+    </div>
+    <template id="cpn">
+        <div>
+            <h2>title</h2>
+            <p>cmessage:{{cmessage}}</p>
+            <p>dmessage:{{dmessage}}</p>
+            <input type="text" v-model="dmessage">
+        </div>
+    </template>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                message:'hello word',
+            },
+            methods:{
+                messagechange(value){
+                    this.message = value
+                }
+            },
+            components:{
+                cpn:{
+                    template:'#cpn',
+                    props:{
+                        cmessage:String
+                    },
+                    data(){
+                        return{
+                            dmessage:this.cmessage
+                        }
+                    },
+					watch:{
+						dmessage(n,o){
+							if(n !== 0){
+								this.$emit('messagechange',this.dmessage)
+							}
+						}
+					}
+                }
+            }
+        })
+    </script>
+</body>
+</html>

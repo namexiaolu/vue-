@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>{{counter}}</h3>
+        <button @click="increment">+</button>
+        <button @click="decrement">-</button>
+
+        <button @click="show">点一下</button>
+        <button @click="show1('123',$event)">点一下2</button>
+        <div @click="divC">
+                <button @click="butC">.stop</button>
+        </div>
+
+        <!-- keyup -->
+        <input type="text" @keyup.a="keyUp">
+        <div v-if="isUser">
+            <label for="userLogin">用户名</label>
+            <input type="text" name="" id="userLogin">
+        </div>
+        <div v-else>
+                <label for="userLogin">邮箱</label>
+                <input type="text" name="" id="userLogin">
+        </div>
+        <button @click="swich">切换登录方式</button>
+
+        <ul>
+            <li v-for="(item,index) in letters" :key="item">{{index}}-{{item}}</li>
+        </ul>
+        
+        
+    </div>
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                counter:0,
+                isUser:true,
+                letters:['a','b','c','d','e']
+            },
+            methods: {
+                increment(){
+                    this.counter++
+                },
+                decrement(){
+                    this.counter--
+                },
+                show(a){
+                    console.log('aaaa'+a);
+                },
+                show1(b,event){
+                    console.log('this is b '+b);
+                    console.log(event);
+                },
+                divC(){
+                    console.log('divC');
+                    
+                },
+                butC(){
+                    console.log('butC');
+                    
+                },
+                keyUp(){
+                   console.log( '这是a');
+                    
+                },
+                swich(){
+                    this.isUser = !this.isUser
+                }
+
+
+            }
+        })
+    </script>
+</body>
+</html>

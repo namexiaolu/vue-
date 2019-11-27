@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h2 v-bind:style="{color: red}"> {{massage}}</h2>
+        <h2 v-bind:style="[baseStly,baseStyl]"> {{massage}}</h2>
+        <h2>{{ab}}</h2>
+    </div>
+    
+    <script>
+        const app = new Vue({
+            el:'#app',
+            data:{
+                massage: 'hello word',
+                red: 'red',
+                baseStyl:{color:'red'},
+                baseStly:{fontSize:'50px'},
+                a:'aaaa',
+                b:'bbbb'
+
+            },
+            //计算属性，起名字的时候，尽可能的起名是属性的名字
+            //在上边引用的时候，直接引用就可以，不用加小括号。
+            computed: {
+                ab : function(){
+                    return this.a+this.b
+                }
+            }
+        })
+    </script>
+</body>
+</html>
