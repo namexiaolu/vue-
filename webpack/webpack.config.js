@@ -1,9 +1,11 @@
 const path = require('path')
+const webpack = require('webpack')
+const htmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   entry:'./src/main.js',
   output:{
-    path : path.resolve(__dirname,'dist'),
+    path : path.resolve(__dirname,'../dist'),
     filename:'bundle.js'
   },
   module: {
@@ -48,5 +50,12 @@ module.exports = {
     alias:{
       'vue$':'vue/dist/vue.esm.js'
     }
-  }
+  },
+  plugins:[
+    new webpack.BannerPlugin('最终版权归xiaolu所有'),
+    new htmlWebpackPlugin({
+      template: 'index.html'
+    })
+    
+  ]
 }
