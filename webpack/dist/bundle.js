@@ -662,9 +662,9 @@ module.exports = function (url, needQuotes) {
 
 /***/ }),
 /* 11 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "dist/img/oneba2700f9.jpg";
+module.exports = __webpack_require__.p + "img/oneba2700f9.jpg";
 
 /***/ }),
 /* 12 */

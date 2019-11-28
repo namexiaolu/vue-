@@ -5,8 +5,9 @@ const htmlWebpackPlugin = require("html-webpack-plugin")
 module.exports = {
   entry:'./src/main.js',
   output:{
-    path : path.resolve(__dirname,'../dist'),
-    filename:'bundle.js'
+    path : path.resolve(__dirname,'./dist'),
+    filename:'bundle.js',
+    // publicPath:'./'
   },
   module: {
     rules: [
@@ -22,7 +23,7 @@ module.exports = {
             options:{
               limit:8192,
               name:'img/[name][hash:8].[ext]',
-              publicPath:'dist/'
+              publicPath:''
             }
           }
         ]
