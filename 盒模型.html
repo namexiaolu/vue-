@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .boxie{
+            box-sizing: border-box;
+            width: 400px;
+            padding: 20px;
+            background-color:red;
+            border: 2px solid blue;
+            margin: 30px;
+        }
+        .box{
+            box-sizing: content-box;
+            width: 400px;
+            padding: 20px;
+            background-color: yellow;
+            border: 2px solid blue;
+            margin: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="boxie">
+        这个是个ie盒模型。
+    </div>
+    <p></p>
+    <div class="box">
+        这是正常盒模型
+    </div>
+</body>
+</html>
