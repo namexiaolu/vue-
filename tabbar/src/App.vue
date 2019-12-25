@@ -1,38 +1,43 @@
 <template>
   <div id="app">
-    <tabbar></tabbar>
+    <tabbar>
+        <tab-bar-item>
+          <!-- 通过插槽插过来 -->
+          <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+          <div slot="item-text">首页</div>
+        </tab-bar-item>
+        <tab-bar-item>
+          <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+          <div slot="item-text">我的</div>
+        </tab-bar-item>
+        <tab-bar-item>
+          <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+          <div slot="item-text">购物车</div>
+        </tab-bar-item>
+        <tab-bar-item>
+          <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+          <div slot="item-text">分类</div>
+        </tab-bar-item>
+    </tabbar>
   </div>
 </template>
 
 <script>
+// 上边想用tabbar和tabbaritem标签的话，需要在这里导入，并且在组件中注册。
 import Tabbar from './components/tabbar/Tabbar'
+import TabBarItem from './components/tabbar/TabBarItem'
 export default {
   name: 'App',
   components:{
-    Tabbar
+    Tabbar,
+    TabBarItem
   }
 }
 </script>
 
 <style>
+/* 在style中引用base.css */
 @import "./assets/css/base.css";
-#tab-bar {
-  display: flex;
-  background-color: #f6f6f6;
 
-/* 定位到底部 */
-  position: fixed;
-  left:0;
-  right: 0;
-  bottom: 0;
 
-/* 阴影 */
-box-shadow: 0 -1px 1px rgba(190, 115, 115, 0.1)
-
-}
-.tab-bar-item{
-  flex: 1;
-  text-align: center;
-  height: 49px;
-}
 </style>
