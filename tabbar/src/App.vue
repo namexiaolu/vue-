@@ -4,6 +4,7 @@
         <tab-bar-item>
           <!-- 通过插槽插过来 -->
           <img slot="item-icon" src="./assets/img/tabbar/home.svg" alt="">
+          <img slot="item-icon-active" src="./assets/img/tabbar/homeactive.svg" alt="">
           <div slot="item-text">首页</div>
         </tab-bar-item>
         <tab-bar-item>
