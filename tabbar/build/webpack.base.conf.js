@@ -26,6 +26,9 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       '@': resolve('src'),
+      'assets': resolve('@/asseets'),
+      'components': resolve('@/components'),
+
     }
   },
   module: {
