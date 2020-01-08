@@ -37,19 +37,38 @@ new Vue({
     
 //   })
 // - 创建对应的axios的实例
-const instance1 = axios.create({
-  baseURL:'http://123.207.32.32:8000',
-  timeout:5000
-})
+// const instance1 = axios.create({
+//   baseURL:'http://123.207.32.32:8000',
+//   timeout:5000
+// })
 
-instance1({
+// instance1({
+//   url:'/home/multidata'
+// }).then(res =>{
+//   console.log(res);
+  
+// })
+
+// const instance2 = axios.create({
+//   baseURL:'http://123.207.32.32:8000',
+//   timeout:3000
+// })
+// 封装request模块
+import {request} from "./network/request";
+
+// request({
+//   url:'./home/multidata'
+// }, res =>{
+//   console.log(res);
+  
+// }, err =>{
+//   console.log(err);
+  
+// })
+request({
   url:'/home/multidata'
 }).then(res =>{
   console.log(res);
-  
-})
-
-const instance2 = axios.create({
-  baseURL:'http://123.207.32.32:8000',
-  timeout:3000
+}).catch(err =>{
+  console.log(err);
 })
